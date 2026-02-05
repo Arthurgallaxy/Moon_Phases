@@ -1,0 +1,9 @@
+import math
+class Bodies
+ def __init__(self, radius,mass,tilt, rotational_velocity)
+ self.radius=radius
+ self.mass=mass
+ self.tilt=tilt
+ self.rotational_velocity=rotational_velocity
+ 
+ 
