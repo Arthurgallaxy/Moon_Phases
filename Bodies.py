@@ -1,3 +1,4 @@
+Class Cat:
   def __init__(self, latitude, longitude, alive=True, date_time=None):
         # Initialize the cat's properties
         self.latitude = latitude
