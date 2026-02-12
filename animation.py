@@ -23,7 +23,7 @@ def load_body_csvs(folder="Sim_data", pattern="body*.csv"):
         else:
             arr = arr[:, :3]
 
-        # drop non-finite rows (prevents broken limits / single-frame weirdness)
+        # Remove non-finite rows (prevents broken limits / jitter)
         mask = np.isfinite(arr).all(axis=1)
         arr = arr[mask]
         data.append(arr)
@@ -33,23 +33,41 @@ def load_body_csvs(folder="Sim_data", pattern="body*.csv"):
     return paths, np.stack(data, axis=0)  # (B, T, 3)
 
 
-def animate_follow_earth(
+def animate_orbits(
     folder="Sim_data",
     pattern="body*.csv",
     labels=None,
-    earth_index=1,
     stride=10,
     interval=20,
-    trail=800,              # how many plotted points in the trail (in frames, not seconds)
-    window_au=0.02,          # camera half-width in AU (0.02 AU ~ 3 million km)
+    trail=800,
+    viewpoint="earth",      # "system" or "earth"
+    center_on=0,             # used for "system" viewpoint (0=sun)
+    earth_index=1,           # used for "earth" viewpoint
+    window_au=0.01,          # used for "earth" viewpoint (half-width)
 ):
-    paths, pos = load_body_csvs(folder, pattern)
+    """
+    viewpoint="system":
+        - subtracts center_on body from all positions (e.g., heliocentric)
+        - fixed axis limits based on whole dataset
+    viewpoint="earth":
+        - camera follows earth_index body
+        - axis limits recentered each frame to +/- window_au around Earth
+    """
+    viewpoint = viewpoint.lower().strip()
+    if viewpoint not in {"system", "earth"}:
+        raise ValueError('viewpoint must be "system" or "earth"')
+
+    paths, pos = load_body_csvs(folder, pattern)  # meters
     B, T, _ = pos.shape
 
     if labels is None:
         labels = [os.path.splitext(os.path.basename(p))[0] for p in paths]
 
-    # Use x,y only, convert to AU for readable axes
+    # Centering for system view
+    if viewpoint == "system":
+        pos = pos - pos[center_on:center_on + 1, :, :]
+
+    # 2D positions in AU
     xy = pos[:, :, :2] / AU
 
     fig, ax = plt.subplots(figsize=(7, 7))
@@ -67,6 +85,21 @@ def animate_follow_earth(
     ax.legend(loc="upper right")
 
     frames = list(range(0, T, stride))
+
+    # Precompute fixed limits for "system"
+    if viewpoint == "system":
+        flat = xy.reshape(-1, 2)
+        finite = np.isfinite(flat).all(axis=1)
+        if not np.any(finite):
+            raise ValueError("All positions are non-finite (nan/inf). Check your CSV files.")
+        flat_f = flat[finite]
+        rmax = np.max(np.sqrt(flat_f[:, 0] ** 2 + flat_f[:, 1] ** 2))
+        if not np.isfinite(rmax) or rmax == 0:
+            rmax = 1.0
+        L = rmax * 1.05
+        ax.set_xlim(-L, L)
+        ax.set_ylim(-L, L)
+
     half = float(window_au)
 
     def init():
@@ -76,14 +109,13 @@ def animate_follow_earth(
         return points + trails
 
     def update(k):
-        # Camera center = Earth position at frame k
-        cx, cy = xy[earth_index, k]
+        # Camera control
+        if viewpoint == "earth":
+            cx, cy = xy[earth_index, k]
+            ax.set_xlim(cx - half, cx + half)
+            ax.set_ylim(cy - half, cy + half)
 
-        # Set view window centered on Earth
-        ax.set_xlim(cx - half, cx + half)
-        ax.set_ylim(cy - half, cy + half)
-
-        # Update each body
+        # Update artists
         for i in range(B):
             x, y = xy[i, k]
             points[i].set_data([x], [y])
@@ -93,7 +125,11 @@ def animate_follow_earth(
             ys = xy[i, start:k + 1:stride, 1]
             trails[i].set_data(xs, ys)
 
-        ax.set_title(f"Following Earth (body {earth_index}) | timestep {k}/{T-1}")
+        if viewpoint == "earth":
+            ax.set_title(f"View: Earth-follow | timestep {k}/{T-1}")
+        else:
+            ax.set_title(f"View: System (center_on={center_on}) | timestep {k}/{T-1}")
+
         return points + trails
 
     anim = FuncAnimation(
@@ -102,7 +138,7 @@ def animate_follow_earth(
         frames=frames,
         init_func=init,
         interval=interval,
-        blit=False,   # more reliable across backends
+        blit=False,
         repeat=True,
     )
 
@@ -110,16 +146,26 @@ def animate_follow_earth(
 
 
 if __name__ == "__main__":
-    fig, anim = animate_follow_earth(
-        folder="Sim_data",
-        pattern="body*.csv",
+    # Full solar system view (heliocentric)
+    """fig, anim = animate_orbits(
         labels=["Sun", "Earth", "Moon"],
+        viewpoint="earth",
         earth_index=1,
+        window_au=0.01,
         stride=10,
         interval=20,
         trail=800,
-        window_au=0.01,   # zoom: try 0.005..0.05
     )
-
-    # IMPORTANT: keep reference to anim until after show()
+    plt.show()"""
+    fig, anim = animate_orbits(
+        labels=["Sun", "Earth", "Moon"],
+        viewpoint="system",
+        center_on=0,
+        stride=10,
+        interval=20,
+        trail=600,
+    )
     plt.show()
+
+    #Earth-follow view (zoom around Earth)
+

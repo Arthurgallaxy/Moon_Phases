@@ -27,6 +27,8 @@ def simulate():
               x=-2.61397251e10, y=1.44693286e11, z=1.19321608e5,
               vx=-2.97919995e4, vy=-4.39714069e3, vz=-9.76655903e-3,
               r=1.737e6)
+    ##CONFIGURATIONS FOR THE SOLAR SYSTEM WERE CALCULATED AND SEARCHED FOR BY chatGPT
+
 
     pos = np.zeros((3, timestep_num, 3), dtype=np.float64)
     vel = np.zeros((3, timestep_num, 3), dtype=np.float64)
