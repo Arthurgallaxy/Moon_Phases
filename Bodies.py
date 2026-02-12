@@ -1,9 +1,11 @@
+import random
+
 class Cat:
   def __init__(self, latitude, longitude, alive=True, date_time=None):
         # Initialize the cat's properties
         self.latitude = latitude
         self.longitude = longitude
-        self.alive = alive
+        self.alive = random.choice(['Alive', 'Dead'])
         self.date_time = date_time
 
     def set_position(self, latitude, longitude):
