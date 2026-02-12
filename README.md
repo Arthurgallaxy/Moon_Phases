@@ -13,7 +13,7 @@ In this README file, you can find:
 6. Repository content
 
 ## 1. Motivation & Aim of our project
-This project aims to create a simple but accurate stimulation that would enable one to vizualize the phases of the moon from an observer on Earth. As a part of this python pratical, our main motivation was to challenge ourselves and learn to code by collaborating to create something interesting and with a scientific relevance.
+This project aims to create a simple but accurate stimulation that would enable one to vizualize the phases of the moon from an observer on Earth. As a part of this python pratical, our main motivation was to challenge ourselves and learn to code by collaborating to create something interesting and with a scientific relevance that could maybe be used as a very lame educational tool.
 
 In our stimulation, we want to visualize the dynamic between three very familiar bodies: the Earth, the Sun and the Moon. In order to do so, we created four classes: celestial bodies, orbits, observer and user interface (abbreviated as UI). The goal is to provide a user with a user-friendly interface that they could use to visualize the phases of the moon/if the moon is visible or not from a changeable location (latitude, longitude) on Earth. The observer is represented by a cat on Earth that can either be dead or alive (little nerdy quantum add to this astronomy project.)
 
