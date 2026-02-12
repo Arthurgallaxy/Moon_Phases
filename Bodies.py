@@ -52,7 +52,6 @@ class Bodies:
         Fg = Bodies.G * Body1.mass * Body2.mass / (distance ** 2) #Fg = G*m_1*m_2/(r^2)
         return Fg
 
-
 Earth = Bodies("Earth", 6378000, 5.9722e24)
 print(Earth.density())
 Moon = Bodies("Moon", 1738000, 7.35e22)
