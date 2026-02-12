@@ -11,9 +11,11 @@
         self.longitude = longitude
 
     def check_alive(self):
-        # Check if the cat is alive
+        # Check if the cat is alive #50% of the time its dead #poison rate 
         return self.alive
 
     def set_date_time(self, date_time):
         # Set or update the observation time
         self.date_time = date_time
+
+#private or protective
