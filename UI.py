@@ -32,59 +32,74 @@ class app(customtkinter.CTk):
 
             #adjust the scale of the data from meters to AUs
             pos = pos_m/AU
-            xy = pos[:,:,:2]
+            xyz = pos
             #plotting the data
-            fig, ax = plt.subplots(subplot_kw=dict(aspect="equal"))
+            fig = plt.figure(figsize=(8, 8))
+            ax = fig.add_subplot(111, projection="3d")
 
             #sets axis limits for each view point
             if view == "Earth":
                 axis_dim = 0.01
             else:
                 axis_dim = 1.2
-            ax.set_xlim(-axis_dim, axis_dim)
-            ax.set_ylim(-axis_dim, axis_dim)
 
             ax.set_xlabel("Distance (AU)")
             ax.set_ylabel("Distance (AU)")
+            ax.set_zlabel("Distance (AU)")
 
             trails = []
             points = []
             #creats the points(bodies) and related trails
             for i in range(3):
-                (tr,)= ax.plot([],[],lw=1)
-                (pt,)= ax.plot([],[],"o")
+                (tr,)= ax.plot([],[], [], lw=1)
+                (pt,)= ax.plot([],[], [],"o")
                 trails.append(tr)
                 points.append(pt)
+
 
             trail_len = 800
             artists = [*trails, *points]
 
+            def _set_limits(cx=0.0, cy=0.0, cz=0.0):
+                ax.set_xlim(cx - axis_dim, cx + axis_dim)
+                ax.set_ylim(cy - axis_dim, cy + axis_dim)
+                ax.set_zlim(cz - axis_dim, cz + axis_dim)
+
+                # initial limits
+
+            _set_limits(0.0, 0.0, 0.0)
+
             def init():
                 for tr in trails:
                     tr.set_data([], [])
+                    tr.set_3d_properties([])
                 for pt in points:
                     pt.set_data([], [])
+                    pt.set_3d_properties([])
                 return artists
             #function to create each frame of the animation
             def update_frames(i):
                 #i is the frame index
-                xyi = xy[:,i,:].copy()
+                p = xyz[:,i,:].copy()
                 # changes the view if view point is set to earth to center the canvas on body 1 (earth)
                 if view == "Earth":
-                    xyi -= xyi[1]
+                    p -= p[1]
+
 
                 start = max(0, i-trail_len)
 
                 for b in range(3):
                     #points data
-                    points[b].set_data([xyi[b, 0]], [xyi[b, 1]])
+                    points[b].set_data([p[b, 0]], [p[b, 1]])
+                    points[b].set_3d_properties([p[b, 2]])
                     #trails
-                    trail_xy = xy[b, start:i+1, :].copy()
+                    trail_xy = xyz[b, start:i+1, :].copy()
 
                     if view == "Earth":
-                        trail_xy -= xy[1, start:i+1, :]
+                        trail_xy -= xyz[1, start:i+1, :]
 
                     trails[b].set_data(trail_xy[:,0], trail_xy[:,1])
+                    trails[b].set_3d_properties(trail_xy[:,2])
 
                 return artists
 
@@ -96,7 +111,7 @@ class app(customtkinter.CTk):
             #actually creates and draws the animation, to change the animation speed simply adjust the interval value
             self.canvas = FigureCanvasTkAgg(fig, self.anim_frame)
             self.canvas.get_tk_widget().pack(fill="both", expand=True)
-            self.anim = FuncAnimation(fig, update_frames, frames=range(T), blit=True, interval=5, init_func=init)
+            self.anim = FuncAnimation(fig, update_frames, frames=range(T), blit=False, interval=2, init_func=init)
             self.canvas.draw()
             self.anim.event_source.start()
 
@@ -107,7 +122,7 @@ class app(customtkinter.CTk):
         #configure grid layout (currently an even 2x2 grid
         self.grid_rowconfigure((0,1) , weight=1)
         self.grid_columnconfigure((0,1) , weight=1)
-        
+
         #frame for the animation
         self.anim_frame = customtkinter.CTkFrame(self)
         self.anim_frame.grid(row=0, column=0, pady=20, padx=20, sticky="nsew")
