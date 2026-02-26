@@ -27,7 +27,7 @@ def phase(pos):
         7: "Waning Crescent"
     }
     phase_name = phases[int(index) & 7]
-    return phase_name, f"images/{phase_name.replace(' ', '_').lower()}.jpg"  # Path to the image
+    return phase_name, f"moon_images/{phase_name.replace(' ', '_').lower()}.jpg"  # Path to the image
 
 def display_image(image_path):
     try:
