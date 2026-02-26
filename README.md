@@ -45,6 +45,7 @@ In this README file, you can find:
 - [Team Contributions](#-team-contributions)
 - [License](#-license)
 - [Contact Informations](#-contact-informations)
+- [References](#-references)
 
 ## 📌 Description
 Our main motivation, for this python pratical, was to challenge ourselves and learn to code by collaborating on Github to create an interesting stimulation with its visualization and with a scientific relevance that may be used as a lame educational tool in secondary schools.
@@ -68,7 +69,6 @@ Outputs given by the code:
 - if the cat is dead or alive? 🐈‍⬛
 
 ## ✨ Features
-(what our code does)
 - Moon orbit simulation around the Earth?
 - Gravitational force modeling?
 - Date-dependant Moon phase visualization
@@ -93,21 +93,40 @@ This formula, in its simplest form, is used to compute an approximation of the o
   <img src="https://github.com/user-attachments/assets/b9852746-aa5a-438e-8754-ac3d4552f078" alt="Gift Moon phases" width="300">
 </p>
 
-GIFT from https://science.nasa.gov/moon/moon-phases/
+<p align="center">
+  <em>
+  Figure 1: Moon phases visualization over a month.  
+  Source: NASA (2026).
+  </em>
+</p>
 
 Moving on to the physics behind the phases of the Moon, a very widly spread misconception is that they are created by the Earth's shadow. This exactly is what happends during a lunar eclipse but this process is NOT what creates the different phases of the Moon.  
 
 Half of the Moon is actually constantly lit by light coming straight from the Sun. As the Moon revolves around the Earth (with a period of around 28 days), the relative Sun-Earth-Moon positions change. It means that, for an observer on Earth, the lit part of the Moon would look different at different times of the month as shown on the folowing figure. 
-(need citation? sources https://theplanets.org/the-moon/waning-crescent-moon/ OR https://science.nasa.gov/moon/moon-phases/)
+
 <p align="center">
   <img src="https://github.com/user-attachments/assets/4b052cb7-88dd-414c-a4e5-3c77bd9c7a74" alt="Understand Moon phases as seen from Earth" width="700">
 </p>
 
+<p align="center">
+  <em>
+  Figure 2: Understand the phases of the Moon as seen from Earth.  
+  Source: NASA (2026).
+  </em>
+</p>
+
 ### 🌙 Tilt of the Moon
-Then, buildong on to that, we had to consider that the apparent tilt of the moon changes for different latitudes on Earth as represented in this image below (needs citation? source: https://www.reddit.com/r/coolguides/comments/11hns5c/moon_phases_based_on_latitude/).  
+Then, buildong on to that, we had to consider that the apparent tilt of the moon changes for different latitudes on Earth as represented in this image below.  
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/28748a2d-e61d-42c5-a798-b574e8098a1f" alt="Moon phases tilt based on latitude" width="700">
+</p>
+
+<p align="center">
+  <em>
+  Figure 3: Moon phases tilt based on latitude.  
+  Source: Reddit (2023).
+  </em>
 </p>
 
 The Moon seems "upright" and at the poles, and seems to be "laying down" at the equator. The precise degree of the tilt of the Moon can be simplified by:
@@ -136,7 +155,7 @@ other type of data?
 
 ### Prerequisites
 
-- Python 3.8+
+- Python 3.8+ ??
 - pip
 - [Other requirements?]
 
@@ -158,7 +177,7 @@ XXX
 ```
 
 ## 📁 Project Structure
-(not complete)
+(template for now)
 ```
 Moon_Phases/
 │
@@ -200,3 +219,9 @@ Aleksandra Chmielewska – a.chmielewska@student.maastrichtuniversity.nl
 Laura-Jo Lykles – l.lykles@student.maastrichtuniversity.nl   
 Margot Portier – m.portier@student.maastrichtuniversity.nl  
 Luna Hoenders – l.hoenders@student.maastrichtuniversity.nl  
+
+## 📚 References
+
+1. Vogel, T., Vogel, T., Team, N. M., Barry, C., & Nguyen, V. (2026, February 12). Moon Phases - NASA Science. NASA Science. https://science.nasa.gov/moon/moon-phases/
+2. Reddit user aim179. (2023, March 4). Moon phases based on latitude [Reddit post]. Reddit. https://www.reddit.com/r/coolguides/comments/11hns5c/moon_phases_based_on_latitude
+3. XXX
