@@ -179,15 +179,15 @@ redundant with the challenges and solutions part??
 
 ## 👥 Team Contributions
 
-Arthur Foulon – [job in the team]
+Arthur Foulon – animation? helping everyone :)
 
-Aleksandra Chmielewska – [...]
+Aleksandra Chmielewska – UI?
 
-Laura-Jo Lykles – [...]
+Laura-Jo Lykles – 
 
-Margot Portier – README writer
+Margot Portier – README.md writer?
 
-Luna Hoenders – [...]
+Luna Hoenders – moon phases simulation?
 
 ## 📜 License
 This project is licensed under the MIT License. (Open acess.)
@@ -195,8 +195,8 @@ This project is licensed under the MIT License. (Open acess.)
 ## 💬 Contact Informations
 
 If you have any suggestion or ideas to improve this project, feel free to contact any of us!  
-Arthur – [uni mail address]  
-Aleksandra – [...]  
-Laura-Jo – [...]  
+Arthur Foulon – a.foulon@student.maastrichtuniversity.nl    
+Aleksandra Chmielewska – a.chmielewska@student.maastrichtuniversity.nl  
+Laura-Jo Lykles – l.lykles@student.maastrichtuniversity.nl   
 Margot Portier – m.portier@student.maastrichtuniversity.nl  
-Luna – l.hoenders@student.maastrichtuniversity.nl
+Luna Hoenders – l.hoenders@student.maastrichtuniversity.nl  
