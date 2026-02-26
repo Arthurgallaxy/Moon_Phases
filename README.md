@@ -159,4 +159,4 @@ Arthur – [uni mail address]
 Aleksandra – [...]  
 Laura-Jo – [...]  
 Margot Portier – m.portier@student.maastrichtuniversity.nl  
-Luna – [...]
+Luna – l.hoenders@student.maastrichtuniversity.nl
