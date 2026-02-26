@@ -120,7 +120,7 @@ Where:
 
 This linear approximation doesn't take into account the Sun's and Moon's azimuth and altitude.
 
-- ## 🛠 Libraries Used
+## 🛠 Libraries Used
 
 - Python version 3.11+ ??
 - rebound – N-body gravitational simulation package
