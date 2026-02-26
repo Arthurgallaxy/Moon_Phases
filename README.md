@@ -3,7 +3,7 @@
 **Course:** Practical Python Programming Language – Introduction to OOP  
 **Institution:** MSP  
 **Date:** February/March 2026  
-**Team members and student IDs:** Luna Lastname (ID), Margot Portier (i6344762), Laura-Jo lastname (ID), XXX
+**Team members and student IDs:** Luna Hoenders (6352961), Margot Portier (i6344762), Laura-Jo lastname (ID), XXX
 
 *This project aims to create a simple but accurate stimulation that would enable one to vizualize the phases of the moon from an observer on Earth.*
 
@@ -159,4 +159,4 @@ Arthur – [uni mail address]
 Aleksandra – [...]  
 Laura-Jo – [...]  
 Margot Portier – m.portier@student.maastrichtuniversity.nl  
-Luna – [...]
+Luna – l.hoenders@student.maastrichtuniversity.nl
