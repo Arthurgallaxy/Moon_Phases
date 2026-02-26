@@ -22,7 +22,7 @@
     - [ ] Project structure diagram
     - [ ] Contributing guidelines (for group projects)
     - [x] License information
-    - [ ] Contact/support information
+    - [x] Contact information
     - [ ] Screenshots or GIFs (if applicable)
 - Optional but nice:
     - [ ] Table of contents (for long READMEs)
