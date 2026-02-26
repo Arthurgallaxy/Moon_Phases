@@ -37,10 +37,17 @@ Orbits.orbit_check("Moon", "Bloop") #testing
 class Bodies:
     """Class representing the different celestial orbits"""
     G = 6.674e-11 #Newtons gravitational constant
-    def __init__(self, name, P_radius, mass):
+    def __init__(self, name, P_radius, mass, x, y, z, vx, vy, vz, tilt):
         self.name = name
         self.P_radius = P_radius #radius of the planet
         self.mass = mass
+        self.x =  x
+        self.y = y
+        self.z = z
+        self.vx = vx
+        self.vy = vy
+        self.vz = vz
+        self.tilt = tilt
 
     def density(self):
         density = self.mass / (4 / 3 * math.pi * (self.P_radius ** 3))
