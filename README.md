@@ -144,9 +144,11 @@ This linear approximation doesn't take into account the Sun's and Moon's respect
 
 - Python (version 3.14)
 - rebound – N-body gravitational simulation package
-- tkinter – GUI framework for user interaction (ctkinter??)
+- customtkinter – GUI framework for user interaction
 - matplotlib – Orbit visualization and plotting
-- skyfield/ephem?? – Astronomical calculations for phases of the Moon
+- skyfield/ephem (?) – Astronomical calculations for phases of the Moon
+- Pillow – Image processing library  
+- numpy – Numerical computing library for array operations and mathematical calculations  
 
 ## 📚 Data Used
 The Moon phases images used as output were obtained from NASA (2026).
