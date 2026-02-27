@@ -46,7 +46,7 @@ class app(customtkinter.CTk):
                 pil_img=Image.open(img_path)
 
             #for an image to stay where it is 
-                self._phase_img = customtkinter.CTkImage(light_image = pil_img , dark_image = pil_img, size = (40, 40))
+                self._phase_img = customtkinter.CTkImage(light_image = pil_img , dark_image = pil_img, size = (248, 348))
                 self.image_label_frame.configure(image=self._phase_img, text ="")
             
             #this one ought to be displayed when it is daytime/ wrong side of Earth

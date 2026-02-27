@@ -42,7 +42,7 @@ def moon_phase_for_date(date_str):
     try:
         input_date = datetime.datetime.strptime(date_str, "%Y-%m-%d")
         pos=position(input_date)
-        phase_name = phase(pos)
+        return phase(pos)
     except ValueError:
         print("Invalid date format. Please use YYYY-MM-DD.")
         return
