@@ -1,9 +1,10 @@
 import customtkinter
+from PIL import Image
 import ast
 import os
 from tkinter import END
 from simulation import simulate
-#from moon_phases_pictures import display_image
+from moon_phases_pictures import moon_phase_for_date
 
 import numpy as np
 from matplotlib import pyplot as plt
@@ -24,21 +25,39 @@ class app(customtkinter.CTk):
     def __init__(self):
         customtkinter.CTk.__init__(self)
 
+        """""
         self.result_label_frame = customtkinter.CTkLabel(self, text="", font = ("Arial", 16))
         self.result_label_frame.grid(row=1,column=0, columnspan=2, pady = (10,5))
+        """
         
 
         def submit():
-            """""
+            
             try: 
 
             #this time i would like to have as an imput to the simulation, here we connect it to the moon phases
-            self.time_entry.get()=str.time
-            
+                date_str=self.time_entry_frame.get().strip()
+                phase_name, img_path = moon_phase_for_date(date_str)
 
+            #configuring the text of the result
+                self.result_label_frame.configure(text=f"{phase_name}")
+
+            #displaying the image in the ui
+                pil_img=Image.open(img_path)
+
+            #for an image to stay where it is 
+                self._phase_img = customtkinter.CTkImage(light_image = pil_img , dark_image = pil_img, size = (40, 40))
+                self.image_label_frame.configure(image=self._phase_img, text ="")
+            
+            #this one ought to be displayed when it is daytime/ wrong side of Earth
             except ValueError:
                self.result_label_frame.configure(text="Can't see the moon now!")
-               """
+               #this one is for us to check whether the directory works
+            except FileNotFoundError:
+                self.result_label_frame.configure("Image not found")
+            
+            
+               
             path = os.path.join(BASE_DIR, "Sim_data", f"body0.csv")
             if not os.path.exists(path):
                 simulate()
@@ -51,21 +70,10 @@ class app(customtkinter.CTk):
             
             
             
-            
-                    
-
-
-
-            
-            
         #the method for clearing the button so we can put next thing 
 
-        def clear(self):
-            self.time_entry.delete(0,END)
-
-
-
-
+        #def clear(self):
+           # self.time_entry.delete(0,END)
 
 
         #function to make the matplot animation
@@ -166,7 +174,7 @@ class app(customtkinter.CTk):
             self.anim = FuncAnimation(fig, update_frames, frames=range(T), blit=False, interval=2, init_func=init)
             self.canvas.draw()
             self.anim.event_source.start()
-            #self.phase = 
+            
         
         #window configurations
         self.title("Phases of the Moon")
@@ -185,13 +193,16 @@ class app(customtkinter.CTk):
         self.anim_frame = customtkinter.CTkFrame(self)
         self.anim_frame.grid(row=0, column=0, pady=20, padx=20, sticky="nsew")
 
-        #frame for the viewpoint buttons, we have is spaced in 4 rows nicely, and sun and earth views are next to each other
+        #frame for the viewpoint buttons, we have is spaced in 5 rows nicely, and sun and earth views are next to each other
         self.right_panel = customtkinter.CTkFrame(self)
         self.right_panel.grid(row=0, column=1, pady=20, padx=20, sticky="nsew")
         self.right_panel.grid_rowconfigure(0, weight=1)
         self.right_panel.grid_rowconfigure(1, weight=1)
         self.right_panel.grid_rowconfigure(2, weight=1)
-        self.right_panel.grid_rowconfigure(3, weight=1)
+        self.right_panel.grid_rowconfigure(3, weight=3)
+        self.right_panel.grid_rowconfigure(4, weight=1)
+
+        
         self.right_panel.grid_columnconfigure(0, weight=1)
         self.right_panel.grid_columnconfigure(1, weight=1)
 
@@ -206,16 +217,24 @@ class app(customtkinter.CTk):
 
 
 
-        self.time_entry_frame= customtkinter.CTkEntry(self.right_panel, placeholder_text="Enter the date",  height=100, width=250 )
-        self.time_entry_frame.grid(row=2,column=0, columnspan=2, pady= 10, padx=12)
+        self.time_entry_frame= customtkinter.CTkEntry(self.right_panel, placeholder_text="Enter the date : YYYY-MM-DD",  height=100, width=250 )
+        self.time_entry_frame.grid(row=1,column=0, columnspan=2, pady= 10, padx=12)
 
         #the submition button which needs to be connected to the pre-definied function submit
         self.my_button_frame= customtkinter.CTkButton(self.right_panel,text="Start simulation",command=submit, height=30, width=70)
-        self.my_button_frame.grid(row=3, column=0, columnspan=2, pady = (0,12), padx = 12)
+        self.my_button_frame.grid(row=2, column=0, columnspan=2, pady = (0,12), padx = 12)
 
         #the result text popping up when we have an error input - i have to work on it
-        #self.result_label_frame = customtkinter.CTkLabel(self, text="", font = ("Arial", 16))
-        #self.result_label_frame.grid(row=0,column=0, columnspan=2, pady = (10,5))
+
+        self.result_label_frame = customtkinter.CTkLabel(self, text="", font = ("Arial", 16))
+        self.result_label_frame.grid(row=4,column=0, columnspan=2, pady = (10,5))
+
+        # the image object in the ui 
+        self.image_label_frame = customtkinter.CTkLabel(self.right_panel, text = "")
+        self.image_label_frame.grid(row=3, column=0, columnspan=2, pady = (12,6), padx = (6,12))
+        self.phase_img = None 
+
+
         
 
 

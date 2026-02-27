@@ -1,7 +1,11 @@
 import math, decimal, datetime
 from PIL import Image
+from pathlib import Path
 
 dec = decimal.Decimal
+BASE_DIR = Path(__file__).resolve().parent
+IMG_DIR = BASE_DIR / "moon_images"
+
 
 def position(now=None): 
     if now is None: 
@@ -27,7 +31,29 @@ def phase(pos):
         7: "Waning Crescent"
     }
     phase_name = phases[int(index) & 7]
-    return phase_name, f"moon_images/{phase_name.replace(' ', '_').lower()}.jpg"  # Path to the image
+    filename = f"{phase_name.replace(' ', '_').lower()}.jpg"
+    image_path = IMG_DIR / filename
+    return phase_name, image_path
+
+
+def moon_phase_for_date(date_str):
+    #date_str is the time we get from the user though ui ( it is defined there)
+
+    try:
+        input_date = datetime.datetime.strptime(date_str, "%Y-%m-%d")
+        pos=position(input_date)
+        phase_name = phase(pos)
+    except ValueError:
+        print("Invalid date format. Please use YYYY-MM-DD.")
+        return
+
+
+
+
+    
+    
+    """return phase_name, f"moon_images/{phase_name.replace(' ', '_').lower()}.jpg"  # Path to the image"""
+    """""
 
 def display_image(image_path):
     try:
@@ -56,6 +82,8 @@ def main():
     
     # Display the corresponding image
     display_image(image_path)
-
+    """
+"""""
 if __name__ == "__main__": 
     main()
+    """
