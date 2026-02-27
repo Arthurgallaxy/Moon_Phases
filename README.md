@@ -5,7 +5,7 @@
 **Date:** February/March 2026  
 **Team members and student IDs:** Arthur Foulon (i6374980), Aleksandra Chmielewska (i6382400), Luna Hoenders (i6352961), Laura-Jo Lykles (i6375390), Margot Portier (i6344762) 
 
-*This project aims to create a simple but accurate stimulation that would enable one to vizualize the phases of the Moon from an Earth-bound observer.*
+*This project aims to create a simple but accurate stimulation that would enable one to visualize the phases of the Moon from an Earth-bound observer.*
 
 ## README instructions
 (Only for us, to be deleted before final submission, check boxe only if part is fully finished):  
@@ -44,11 +44,11 @@ In this README file, you can find:
 - [Future Improvements](#-future-improvements)
 - [Team Contributions](#-team-contributions)
 - [License](#-license)
-- [Contact Informations](#-contact-informations)
+- [Contact Information](#-contact-information)
 - [References](#-references)
 
 ## 📌 Description
-Our main motivation, for this python pratical, was to challenge ourselves and learn to code by collaborating on Github to create an interesting stimulation with its visualization and with a scientific relevance that may be used as a lame educational tool in secondary schools.
+Our main motivation, for this python practical, was to challenge ourselves and learn to code by collaborating on GitHub to create an interesting stimulation with its visualization and with a scientific relevance that may be used as a lame educational tool in secondary schools.
 
 In our stimulation, we want to visualize the dynamic between three very familiar bodies: the Earth, the Sun and the Moon. In order to do so, we created four classes: celestial bodies, orbits, observer and user interface (abbreviated as UI). The goal is to provide a user-friendly interface that could be used to visualize the phases and tilt of the Moon depending on the date and latitude on Earth. The Earth-bound observer is represented by a cat that can either be dead or alive with a 50% chance (little nerdy quantum add to this astronomy project.)
 
@@ -87,7 +87,7 @@ Where:
 - **m₁, m₂** = masses of the two objects (in kg)
 - **r** = distance between the centers of mass of the two objects (in meters)
 
-This formula, in its simplest form, is used to compute an approximation of the orbits of the Earth around the Sun (?) and the Moon around the Earth as a basis for our simulation. Any relativisty effect was ignored.
+This formula, in its simplest form, is used to compute an approximation of the orbits of the Earth around the Sun (?) and the Moon around the Earth as a basis for our simulation. Any relativistic effect was ignored.
 
 ### 🌘 Phases of the Moon
 <p align="center">
@@ -101,9 +101,9 @@ This formula, in its simplest form, is used to compute an approximation of the o
   </em>
 </p>
 
-Moving on to the physics behind the phases of the Moon, a very widly spread misconception is that they are created by the Earth's moving shadow on our satellite. This exactly is what happends during lunar eclipses but this process is NOT what creates the different phases of the Moon over a month.  
+Moving on to the physics behind the phases of the Moon, a very widely spread misconception is that they are created by the Earth's moving shadow on our satellite. This exactly is what happens during lunar eclipses but this process is NOT what creates the different phases of the Moon over a month.  
 
-Half of the Moon is actually constantly lit by light coming straight from the Sun. As the Moon revolves around the Earth (with a period between 29 and 30 days), the relative Sun-Earth-Moon positions change. It means that, for an observer on Earth, the lit part of the Moon would look different at different times of the month as shown on the folowing figure. 
+Half of the Moon is actually constantly lit by light coming straight from the Sun. As the Moon revolves around the Earth (with a period between 29 and 30 days), the relative Sun-Earth-Moon positions change. It means that, for an observer on Earth, the lit part of the Moon would look different at different times of the month as shown on the following figure. 
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/4b052cb7-88dd-414c-a4e5-3c77bd9c7a74" alt="Understand Moon phases as seen from Earth" width="700">
@@ -136,13 +136,13 @@ To an observer at the poles, the Moon appears “upright,” whereas to an obser
 
 Where:  
 - **L** = observer's latitude (in degrees) between 0° (at the equator) and +/-90° (at the poles)
-- **T** = apparent tilt angle (in degrees) between 0° ("laying down") and +/- 90° ("uprigth")
+- **T** = apparent tilt angle (in degrees) between 0° ("laying down") and +/- 90° ("upright")
 
 This linear approximation doesn't take into account the Sun's and Moon's respective azimuth and altitude.
 
 ## 🛠 Libraries Used
 
-- Python version 3.11+ ??
+- Python (version 3.14)
 - rebound – N-body gravitational simulation package
 - tkinter – GUI framework for user interaction (ctkinter??)
 - matplotlib – Orbit visualization and plotting
@@ -177,17 +177,34 @@ XXX
 ```
 
 ## 📁 Project Structure
-(template for now)
+(Main branch only)
 ```
 Moon_Phases/
-│
-├── main/
-│   ├── file1.py
-│   ├── file2.py
-│   └── main.py
-│
-├── tests/
-└── README.md #This file :)
+├── Bodies.py
+├── moon_phases_pictures.py
+├── simulation.py
+├── UI.py
+├── README.md  # This file :)
+| 
+├──.idea
+|   ├── .gitignore
+|   ├── misc.xml
+|   ├── modules.xml
+|   ├── Moon_Phases.iml
+|   ├── vcs.xml
+|   ├── workspace.xml 
+|   └── inspectionProfiles
+|           profiles_settings.xml    
+|      
+└── moon_images/
+    ├── first_quarter.jpg
+    ├── full_moon.jpg
+    ├── last_quarter.jpg
+    ├── new_moon.jpg
+    ├── waning_crescent.jpg
+    ├── waning_gibbous.jpg
+    ├── waxing_crescent.jpg
+    ├── waxing_gibbous.jpg
 ```
 ## 🚧 Challenges & Solutions
 
@@ -209,9 +226,9 @@ Margot Portier – README.md writer?
 Luna Hoenders – moon phases simulation?
 
 ## 📜 License
-This project is licensed under the MIT License. (Open acess.)
+This project is licensed under the MIT License. (Open access.)
 
-## 💬 Contact Informations
+## 💬 Contact Information
 
 If you have any suggestion or ideas to improve this project, feel free to contact any of us!  
 Arthur Foulon – a.foulon@student.maastrichtuniversity.nl    
