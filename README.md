@@ -3,7 +3,7 @@
 **Course:** Practical Python Programming Language – Introduction to OOP  
 **Institution:** Maastricht Science Programme  
 **Date:** February/March 2026  
-**Team members and student IDs:** Arthur Foulon (ID), Aleksandra Chmielewska (ID), Luna Hoenders (ID), Laura-Jo Lykles (i6375390), Margot Portier (i6344762) 
+**Team members and student IDs:** Arthur Foulon (i6374980), Aleksandra Chmielewska (i6382400), Luna Hoenders (i6352961), Laura-Jo Lykles (i6375390), Margot Portier (i6344762) 
 
 *This project aims to create a simple but accurate stimulation that would enable one to vizualize the phases of the moon from an Earth-bound observer.*
 
