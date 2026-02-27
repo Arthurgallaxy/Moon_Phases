@@ -5,7 +5,7 @@
 **Date:** February/March 2026  
 **Team members and student IDs:** Arthur Foulon (i6374980), Aleksandra Chmielewska (i6382400), Luna Hoenders (i6352961), Laura-Jo Lykles (i6375390), Margot Portier (i6344762) 
 
-*This project aims to create a simple but accurate stimulation that would enable one to vizualize the phases of the moon from an Earth-bound observer.*
+*This project aims to create a simple but accurate stimulation that would enable one to vizualize the phases of the Moon from an Earth-bound observer.*
 
 ## README instructions
 (Only for us, to be deleted before final submission, check boxe only if part is fully finished):  
@@ -50,14 +50,14 @@ In this README file, you can find:
 ## 📌 Description
 Our main motivation, for this python pratical, was to challenge ourselves and learn to code by collaborating on Github to create an interesting stimulation with its visualization and with a scientific relevance that may be used as a lame educational tool in secondary schools.
 
-In our stimulation, we want to visualize the dynamic between three very familiar bodies: the Earth, the Sun and the Moon. In order to do so, we created four classes: celestial bodies, orbits, observer and user interface (abbreviated as UI). The goal is to provide a user-friendly interface that could be used to visualize the phases and tilt of the moon depending on the date and latitude on Earth. The Earth-bound observer is represented by a cat that can either be dead or alive with a 50% chance (little nerdy quantum add to this astronomy project.)
+In our stimulation, we want to visualize the dynamic between three very familiar bodies: the Earth, the Sun and the Moon. In order to do so, we created four classes: celestial bodies, orbits, observer and user interface (abbreviated as UI). The goal is to provide a user-friendly interface that could be used to visualize the phases and tilt of the Moon depending on the date and latitude on Earth. The Earth-bound observer is represented by a cat that can either be dead or alive with a 50% chance (little nerdy quantum add to this astronomy project.)
 
 Inputs needed from the user:
 - date (and time of the day?)
 - latitude on Earth
 
 Outputs given by the code:
-- visualization of the phase of the moon (example image?) and tilt amongst these 8 possible phases: 
+- visualization of the phase of the Moon amongst these 8 possible phases: 
     - 🌑 (New Moon)
     - 🌒 (Waxing Crescent Moon)
     - 🌓 (First Quarter Moon)
@@ -66,17 +66,18 @@ Outputs given by the code:
     - 🌖 (Waning Gibbous Moon)
     - 🌗 (Last Quarter Moon)
     - 🌘 (Waning Crescent Moon)
-- if the cat is dead or alive? 🐈‍⬛
+- visualization of the apparent tilt of the Moon
+- if the cat is dead or alive... 🐈‍⬛
 
 ## ✨ Features
-- Moon orbit simulation around the Earth?
+- Moon orbit simulation around the Earth from an Earth or Sun perspective?
 - Gravitational force modeling?
 - Date-dependant Moon phase visualization
 - Latitude-dependent Moon tilt visualization?
 
 ## 🧠 Physics Background
 ### 🌍 Gravitational Force
-The first physical principle used in this project is a simplified version of the **gravitational force**. In astronomy, planets orbit stars and moons orbit planets due to **gravitational force**. Newton's law of universal gravitation describes the force between two objects as being:  
+The first physical principle used in this project is a simplified version of the **gravitational force**. In astronomy, planets orbit stars and moons orbit planets due to a **gravitational pull** between them. Newton's law of universal gravitation describes this force between two objects as being:  
 
 **F = G × (m₁ × m₂) / r²**  
 
@@ -84,9 +85,9 @@ Where:
 - **F** = gravitational force (in Newtons)
 - **G** = gravitational constant = 6.674 × 10⁻¹¹ m³/ (in kg·s²)
 - **m₁, m₂** = masses of the two objects (in kg)
-- **r** = distance between centers of the two objects (in meters)
+- **r** = distance between the centers of mass of the two objects (in meters)
 
-This formula, in its simplest form, is used to compute an approximation of the orbits of the Earth around the Sun and the Moon around the Earth (as a basis for our simulation). Any relativisty effect was ignored.
+This formula, in its simplest form, is used to compute an approximation of the orbits of the Earth around the Sun (?) and the Moon around the Earth as a basis for our simulation. Any relativisty effect was ignored.
 
 ### 🌘 Phases of the Moon
 <p align="center">
@@ -100,9 +101,9 @@ This formula, in its simplest form, is used to compute an approximation of the o
   </em>
 </p>
 
-Moving on to the physics behind the phases of the Moon, a very widly spread misconception is that they are created by the Earth's shadow. This exactly is what happends during a lunar eclipse but this process is NOT what creates the different phases of the Moon.  
+Moving on to the physics behind the phases of the Moon, a very widly spread misconception is that they are created by the Earth's moving shadow on our satellite. This exactly is what happends during lunar eclipses but this process is NOT what creates the different phases of the Moon over a month.  
 
-Half of the Moon is actually constantly lit by light coming straight from the Sun. As the Moon revolves around the Earth (with a period of around 28 days), the relative Sun-Earth-Moon positions change. It means that, for an observer on Earth, the lit part of the Moon would look different at different times of the month as shown on the folowing figure. 
+Half of the Moon is actually constantly lit by light coming straight from the Sun. As the Moon revolves around the Earth (with a period between 29 and 30 days), the relative Sun-Earth-Moon positions change. It means that, for an observer on Earth, the lit part of the Moon would look different at different times of the month as shown on the folowing figure. 
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/4b052cb7-88dd-414c-a4e5-3c77bd9c7a74" alt="Understand Moon phases as seen from Earth" width="700">
@@ -116,7 +117,7 @@ Half of the Moon is actually constantly lit by light coming straight from the Su
 </p>
 
 ### 🌙 Tilt of the Moon
-Then, buildong on to that, we had to consider that the apparent tilt of the moon changes for different latitudes on Earth as represented in this image below.  
+Then, building on this idea, we must also consider that the Moon's apparent tilt depending of the observer's latitude on Earth as represented in the image below.  
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/28748a2d-e61d-42c5-a798-b574e8098a1f" alt="Moon phases tilt based on latitude" width="700">
@@ -129,7 +130,7 @@ Then, buildong on to that, we had to consider that the apparent tilt of the moon
   </em>
 </p>
 
-The Moon seems "upright" and at the poles, and seems to be "laying down" at the equator. The precise degree of the tilt of the Moon can be simplified by:
+To an observer at the poles, the Moon appears “upright,” whereas to an observer at the equator, it appears to be “lying on its side.” The exact degree of the Moon’s tilt can be simplified by:
 
 **L ≈ T**
 
@@ -137,7 +138,7 @@ Where:
 - **L** = observer's latitude (in degrees) between 0° (at the equator) and +/-90° (at the poles)
 - **T** = apparent tilt angle (in degrees) between 0° ("laying down") and +/- 90° ("uprigth")
 
-This linear approximation doesn't take into account the Sun's and Moon's azimuth and altitude.
+This linear approximation doesn't take into account the Sun's and Moon's respective azimuth and altitude.
 
 ## 🛠 Libraries Used
 
@@ -148,8 +149,7 @@ This linear approximation doesn't take into account the Sun's and Moon's azimuth
 - skyfield/ephem?? – Astronomical calculations for phases of the Moon
 
 ## 📚 Data Used
-Luna's images of the Moon? source and citation? from https://science.nasa.gov/moon/moon-phases/ ?
-other type of data?
+The Moon phases images used as output were obtained from NASA (2026).
 
 ## ⚙ Installation
 
@@ -224,4 +224,3 @@ Luna Hoenders – l.hoenders@student.maastrichtuniversity.nl
 
 1. Vogel, T., Vogel, T., Team, N. M., Barry, C., & Nguyen, V. (2026, February 12). Moon Phases - NASA Science. NASA Science. https://science.nasa.gov/moon/moon-phases/
 2. Reddit user aim179. (2023, March 4). Moon phases based on latitude [Reddit post]. Reddit. https://www.reddit.com/r/coolguides/comments/11hns5c/moon_phases_based_on_latitude
-3. XXX
