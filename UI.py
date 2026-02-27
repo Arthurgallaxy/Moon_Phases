@@ -3,6 +3,7 @@ import ast
 import os
 from tkinter import END
 from simulation import simulate
+#from moon_phases_pictures import display_image
 
 import numpy as np
 from matplotlib import pyplot as plt
@@ -25,18 +26,38 @@ class app(customtkinter.CTk):
 
         self.result_label_frame = customtkinter.CTkLabel(self, text="", font = ("Arial", 16))
         self.result_label_frame.grid(row=1,column=0, columnspan=2, pady = (10,5))
+        
 
         def submit():
+            """""
             try: 
-                str_time=self.time_entry.get()
-                time=float(str_time)
-        
+
             #this time i would like to have as an imput to the simulation, here we connect it to the moon phases
-        
-                simulate()
-            #function starting the simulation imported from simulation.py
+            self.time_entry.get()=str.time
+            
+
             except ValueError:
-                self.result_label_frame.configure(text="Can't see the moon now!")
+               self.result_label_frame.configure(text="Can't see the moon now!")
+               """
+            path = os.path.join(BASE_DIR, "Sim_data", f"body0.csv")
+            if not os.path.exists(path):
+                simulate()
+                show_anim("Solar")
+
+
+            else:
+                show_anim("Solar")
+
+            
+            
+            
+            
+                    
+
+
+
+            
+            
         #the method for clearing the button so we can put next thing 
 
         def clear(self):
@@ -146,7 +167,7 @@ class app(customtkinter.CTk):
             self.canvas.draw()
             self.anim.event_source.start()
             #self.phase = 
-
+        
         #window configurations
         self.title("Phases of the Moon")
         self.geometry("1400x1000")
