@@ -206,7 +206,7 @@ Moon_Phases/
     ├── waning_crescent.jpg
     ├── waning_gibbous.jpg
     ├── waxing_crescent.jpg
-    ├── waxing_gibbous.jpg
+    └── waxing_gibbous.jpg
 ```
 ## 🚧 Challenges & Solutions
 
