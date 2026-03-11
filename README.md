@@ -131,9 +131,15 @@ The Moon phases images used as output were obtained from NASA (2026).
 ```
 git clone https://github.com/Arthurgallaxy/Moon_Phases.git
 ```
-2. Place them in the same directory on your laptop.
+2. Ensure that all files are in the same folder on your laptop and change your directory to this folder.
+```
+cd Moon_Phases
+```
 3. Install all the required dependencies (the libraries used).
-4. Run simulation.py
+```
+pip install -r requirements.txt
+```
+4. Run UI.py (our main file).
 
 ## 💻 Usage Example
 ```
