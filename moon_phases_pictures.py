@@ -1,3 +1,4 @@
+#Importing libraries
 import math, decimal, datetime
 from PIL import Image
 from pathlib import Path
