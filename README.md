@@ -196,7 +196,7 @@ Moon_Phases/
 
 ## 👥 Team Contributions
 
-Arthur Foulon – Coded animation.py, simulation.py, moon_phases_pictures.py, helped everyone :)
+Arthur Foulon – Coded animation.py, simulation.py, helped everyone :)
 
 Aleksandra Chmielewska – Coded UI.py
 
@@ -204,7 +204,7 @@ Laura-Jo Lykles – Coded Bodies.py
 
 Margot Portier – Wrote README.md
 
-Luna Hoenders – Coded simulation?
+Luna Hoenders – Coded moon_phases_pictures.py
 
 ## 📜 License
 This project is licensed under the MIT License. (Open access.)
