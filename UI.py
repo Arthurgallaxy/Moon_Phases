@@ -1,21 +1,68 @@
 import customtkinter
+from PIL import Image
 import ast
 import os
+from tkinter import END
+from simulation import simulate
+import moon_phases_pictures
 
 import numpy as np
 from matplotlib import pyplot as plt
 from matplotlib.animation import FuncAnimation
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 
-customtkinter.set_appearance_mode("System")
+customtkinter.set_appearance_mode("dark")
 customtkinter.set_appearance_mode("dark-blue")
 
-AU = 1.495978707e11
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+AU = 1.495978707e11 # Astronomical Unit (= distance from the Earth to the Sun) expressed here in meters
+BASE_DIR = os.path.dirname(os.path.abspath(__file__)) #What does that do?
+
 #app
 class app(customtkinter.CTk):
     def __init__(self):
         customtkinter.CTk.__init__(self)
+        """""
+        self.result_label_frame = customtkinter.CTkLabel(self, text="", font = ("Arial", 16))
+        self.result_label_frame.grid(row=1,column=0, columnspan=2, pady = (10,5)) #What is this about?
+        """
+        def submit():
+            
+            try: 
+
+            #this time i would like to have as an imput to the simulation, here we connect it to the moon phases #What would you like to have as input?
+                date_str=self.time_entry_frame.get().strip()
+                moon_phases_calc = moon_phases_pictures.MoonPhaseCalculator("moon_images")
+                phase_name, img_path = moon_phases_calc.moon_phase_for_date(date_str)
+
+            #configuring the text of the result
+            #    self.result_label_frame.configure(text=f"{phase_name}")
+
+            #displaying the image in the ui
+                pil_img=Image.open(img_path)
+
+            #for an image to stay where it is 
+                self._phase_img = customtkinter.CTkImage(light_image = pil_img , dark_image = pil_img, size = (248, 348))
+                self.image_label_frame.configure(image=self._phase_img, text ="")
+            
+            #this one ought to be displayed when it is daytime/ wrong side of Earth
+            except ValueError:
+               self.result_label_frame.configure(text="Can't see the moon now!")
+            #this one is for us to check whether the directory works
+            except FileNotFoundError:
+                self.result_label_frame.configure("Image not found")
+
+            #What is the code below for?
+            path = os.path.join(BASE_DIR, "Sim_data", f"body0.csv") 
+            if not os.path.exists(path):
+                simulate()
+                show_anim("Solar")
+            else:
+                show_anim("Solar")
+
+        #the method for clearing the button so we can put next thing 
+
+        #def clear(self):
+           # self.time_entry.delete(0,END)
 
         #function to make the matplot animation
         def show_anim(view):
@@ -49,13 +96,13 @@ class app(customtkinter.CTk):
 
             trails = []
             points = []
-            #creats the points(bodies) and related trails
+
+            #creates the points(bodies) and related trails
             for i in range(3):
                 (tr,)= ax.plot([],[], [], lw=1)
                 (pt,)= ax.plot([],[], [],"o")
                 trails.append(tr)
                 points.append(pt)
-
 
             trail_len = 800
             artists = [*trails, *points]
@@ -65,7 +112,7 @@ class app(customtkinter.CTk):
                 ax.set_ylim(cy - axis_dim, cy + axis_dim)
                 ax.set_zlim(cz - axis_dim, cz + axis_dim)
 
-                # initial limits
+            # initial limits #What are the limits about?
 
             _set_limits(0.0, 0.0, 0.0)
 
@@ -85,11 +132,10 @@ class app(customtkinter.CTk):
                 if view == "Earth":
                     p -= p[1]
 
-
                 start = max(0, i-trail_len)
 
                 for b in range(3):
-                    #points data
+                    #points data #It's kinda unclear to me, from where do you get these data ?
                     points[b].set_data([p[b, 0]], [p[b, 1]])
                     points[b].set_3d_properties([p[b, 2]])
                     #trails
@@ -107,18 +153,61 @@ class app(customtkinter.CTk):
             for widget in self.anim_frame.winfo_children():
                 widget.destroy()
 
-
             #actually creates and draws the animation, to change the animation speed simply adjust the interval value
             self.canvas = FigureCanvasTkAgg(fig, self.anim_frame)
             self.canvas.get_tk_widget().pack(fill="both", expand=True)
-            self.anim = FuncAnimation(fig, update_frames, frames=range(T), blit=False, interval=2, init_func=init)
+            self.anim = FuncAnimation(fig, update_frames, frames=range(T), blit=False, interval=0.5, init_func=init)
             self.canvas.draw()
             self.anim.event_source.start()
-
+        
         #window configurations
         self.title("Phases of the Moon")
         self.geometry("1400x1000")
 
+        #configure grid layout for the whole screen (1x2)
+        self.grid_rowconfigure(0 , weight=1)
+        self.grid_columnconfigure(0 , weight=4)
+        self.grid_columnconfigure(1 , weight=1)
+
+        #frame for the animation
+        self.anim_frame = customtkinter.CTkFrame(self)
+        self.anim_frame.grid(row=0, column=0, pady=20, padx=20, sticky="nsew")
+
+        #frame for the viewpoint buttons, we have is spaced in 5 rows nicely, and sun and earth views are next to each other
+        self.right_panel = customtkinter.CTkFrame(self)
+        self.right_panel.grid(row=0, column=1, pady=20, padx=20, sticky="nsew")
+        self.right_panel.grid_rowconfigure(0, weight=1)
+        self.right_panel.grid_rowconfigure(1, weight=1)
+        self.right_panel.grid_rowconfigure(2, weight=1)
+        self.right_panel.grid_rowconfigure(3, weight=3)
+        self.right_panel.grid_rowconfigure(4, weight=1)        
+        self.right_panel.grid_columnconfigure(0, weight=1)
+        self.right_panel.grid_columnconfigure(1, weight=1)
+
+        self.solarview=customtkinter.CTkButton(self.right_panel, text="Solar View", height=30, width=70, command=lambda: show_anim("Solar"))
+        self.viewbutton = customtkinter.CTkButton(self.right_panel, text="Earth View", height=30, width=70, command=lambda: show_anim("Earth"))
+        
+        self.solarview.grid(row=0, column = 0, pady = (12,6), padx = (12,6))
+        self.viewbutton.grid(row=0, column = 1, pady = (12,6) , padx = (6,12))
+
+        self.time_entry_frame= customtkinter.CTkEntry(self.right_panel, placeholder_text="Enter the date : YYYY-MM-DD",  height=100, width=250 )
+        self.time_entry_frame.grid(row=2,column=0, columnspan=2, pady= 10, padx=12)
+
+        #the submition button which needs to be connected to the pre-definied function submit
+        self.my_button_frame= customtkinter.CTkButton(self.right_panel,text="Show phase",command=submit, height=30, width=70)
+        self.my_button_frame.grid(row=3, column=0, columnspan=2, pady = (0,12), padx = 12)
+
+        #the result text popping up when we have an error input - i have to work on it
+        self.result_label_frame = customtkinter.CTkLabel(self, text="", font = ("Arial", 16))
+        self.result_label_frame.grid(row=4,column=0, columnspan=2, pady = (10,5))
+
+        # the image object in the ui 
+        self.image_label_frame = customtkinter.CTkLabel(self.right_panel, text = "")
+        self.image_label_frame.grid(row=1, column=0, columnspan=2, pady = (12,6), padx = (6,12))
+        self.phase_img = None 
+
+        #Why is the following code in quotation marks? What is it for? Is that another previous version of the UI?
+        """"
         #configure grid layout (currently an even 2x2 grid
         self.grid_rowconfigure((0,1) , weight=1)
         self.grid_columnconfigure((0,1) , weight=1)
@@ -129,11 +218,27 @@ class app(customtkinter.CTk):
 
         #frame for the viewpoint buttons (can later be switched to a tab view with each viewpoint)
         self.viewpoint_frame = customtkinter.CTkFrame(self)
-        self.viewpoint_frame.grid(row=0, column=1, pady=20, padx=20, sticky="nsew")
+        self.viewpoint_frame.grid(row=0, column=0, columnspan=2, pady=10, padx=20, sticky="nsew")
         self.solarview=customtkinter.CTkButton(self.viewpoint_frame, text="Solar View", height=20, width=50, command=lambda: show_anim("Solar"))
         self.viewbutton = customtkinter.CTkButton(self.viewpoint_frame, text="Earth View", height=20, width=50, command=lambda: show_anim("Earth"))
-        self.solarview.pack(side="top", padx=20, pady=20)
-        self.viewbutton.pack(side="top", padx=20, pady=20)
+        
+        self.solarview.grid(row=0, column = 0, pady = (0,8))
+        self.viewbutton.grid(row=0, column = 1)
+
+        #self.solarview.pack(side="top", padx= 20, pady=20)
+        #self.viewbutton.pack(side="top", padx=20, pady=20)
+
+        self.time_entry_frame= customtkinter.CTkEntry(self, placeholder_text="Enter the date",  height=100, width=250 )
+        self.time_entry_frame.grid(row=0,rowspan=2, column=0,columnspan=2, pady=(10,5))
+
+        #the submition button which needs to be connected to the pre-definied function submit
+        self.my_button_frame= customtkinter.CTkButton(self,text="Start simulation",command=submit)
+        self.my_button_frame.grid(row=0, column=0, columnspan=2, pady = (10,5))
+
+        #the result text popping up when we have an error input
+        self.result_label_frame = customtkinter.CTkLabel(self, text="", font = ("Arial", 16))
+        self.result_label_frame.grid(row=0,column=0, columnspan=2, pady = (10,5))
+        """
 
 
 
