@@ -96,7 +96,7 @@ class app(customtkinter.CTk):
             trails = []
             points = []
 
-            #creats the points(bodies) and related trails
+            #creates the points(bodies) and related trails
             for i in range(3):
                 (tr,)= ax.plot([],[], [], lw=1)
                 (pt,)= ax.plot([],[], [],"o")
@@ -155,7 +155,7 @@ class app(customtkinter.CTk):
             #actually creates and draws the animation, to change the animation speed simply adjust the interval value
             self.canvas = FigureCanvasTkAgg(fig, self.anim_frame)
             self.canvas.get_tk_widget().pack(fill="both", expand=True)
-            self.anim = FuncAnimation(fig, update_frames, frames=range(T), blit=False, interval=2, init_func=init)
+            self.anim = FuncAnimation(fig, update_frames, frames=range(T), blit=False, interval=0.5, init_func=init)
             self.canvas.draw()
             self.anim.event_source.start()
         
@@ -190,11 +190,11 @@ class app(customtkinter.CTk):
         self.viewbutton.grid(row=0, column = 1, pady = (12,6) , padx = (6,12))
 
         self.time_entry_frame= customtkinter.CTkEntry(self.right_panel, placeholder_text="Enter the date : YYYY-MM-DD",  height=100, width=250 )
-        self.time_entry_frame.grid(row=1,column=0, columnspan=2, pady= 10, padx=12)
+        self.time_entry_frame.grid(row=2,column=0, columnspan=2, pady= 10, padx=12)
 
         #the submition button which needs to be connected to the pre-definied function submit
-        self.my_button_frame= customtkinter.CTkButton(self.right_panel,text="Start simulation",command=submit, height=30, width=70)
-        self.my_button_frame.grid(row=2, column=0, columnspan=2, pady = (0,12), padx = 12)
+        self.my_button_frame= customtkinter.CTkButton(self.right_panel,text="Show phase",command=submit, height=30, width=70)
+        self.my_button_frame.grid(row=3, column=0, columnspan=2, pady = (0,12), padx = 12)
 
         #the result text popping up when we have an error input - i have to work on it
         self.result_label_frame = customtkinter.CTkLabel(self, text="", font = ("Arial", 16))
@@ -202,7 +202,7 @@ class app(customtkinter.CTk):
 
         # the image object in the ui 
         self.image_label_frame = customtkinter.CTkLabel(self.right_panel, text = "")
-        self.image_label_frame.grid(row=3, column=0, columnspan=2, pady = (12,6), padx = (6,12))
+        self.image_label_frame.grid(row=1, column=0, columnspan=2, pady = (12,6), padx = (6,12))
         self.phase_img = None 
 
         #Why is the following code in quotation marks? What is it for? Is that another previous version of the UI?
