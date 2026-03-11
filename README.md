@@ -63,8 +63,6 @@ Outputs given by the code:
     - 🌖 (Waning Gibbous Moon)
     - 🌗 (Last Quarter Moon)
     - 🌘 (Waning Crescent Moon)
-- visualization of the apparent tilt of the Moon
-- if the cat is dead or alive... 🐈‍⬛
 
 ## ✨ Features
 - Moon orbit simulation around the Earth from an Earth or Sun perspective?
