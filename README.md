@@ -5,7 +5,7 @@
 **Date:** February/March 2026  
 **Team members and student IDs:** Arthur Foulon (i6374980), Aleksandra Chmielewska (i6382400), Luna Hoenders (i6352961), Laura-Jo Lykles (i6375390), Margot Portier (i6344762) 
 
-*This project aims to create a simple but accurate stimulation that would enable one to visualize the phases of the Moon from an Earth-bound observer.*
+*This project aims to create a simple but accurate stimulation that would enable the visualization of the phases of the Moon for an Earth-bound observer.*
 
 ## README instructions
 (Only for us, to be deleted before final submission, check boxe only if part is fully finished):  
@@ -37,7 +37,6 @@ In this README file, you can find:
 - [Installation & Running the Project](#-installation---running-the-project)
 - [Usage Example](#-usage-example)
 - [Project Structure](#-project-structure)
-- [Challenges & Solutions](#-challenges--solutions)
 - [Future Improvements](#-future-improvements)
 - [Team Contributions](#-team-contributions)
 - [License](#-license)
@@ -45,13 +44,12 @@ In this README file, you can find:
 - [References](#-references)
 
 ## 📌 Description
-Our main motivation, for this python practical, was to challenge ourselves and learn to code by collaborating on GitHub to create an interesting stimulation with its visualization and with a scientific relevance that may be used as a lame educational tool in secondary schools.
+Our main motivation, for this Python practical, was to challenge ourselves and learn to code by collaborating on GitHub to create an interesting stimulation with its visualization and with a scientific relevance that may be used as a lame educational tool in secondary schools.
 
-In our stimulation, we want to visualize the dynamic between three very familiar bodies: the Earth, the Sun and the Moon. In order to do so, we created four classes: celestial bodies, orbits, observer and user interface (abbreviated as UI). The goal is to provide a user-friendly interface that could be used to visualize the phases and tilt of the Moon depending on the date and latitude on Earth. The Earth-bound observer is represented by a cat that can either be dead or alive with a 50% chance (little nerdy quantum add to this astronomy project.)
+In our stimulation, we want to visualize the dynamic between three very familiar bodies: the Earth, the Sun and the Moon. In order to do so, we created three classes: (celestial) bodies, Moon phases pictures and user interface (abbreviated as UI). The goal is to provide a user-friendly interface that could be used to visualize the phases of the Moon at a particular data  for an Earth-bound observer.
 
 Inputs needed from the user:
-- date (and time of the day?)
-- latitude on Earth
+- date (formatted as YYYY-MM-DD)
 
 Outputs given by the code:
 - visualization of the phase of the Moon amongst these 8 possible phases: 
@@ -150,7 +148,7 @@ The Moon phases images used as output were obtained from NASA (2026).
 ### Prerequisites
 - Python 3.8+
 - pip
-- Libraries used
+- Libraries used (mentionned in the requirements.txt file)
 ### Set up
 1. Clone this repository (all project files in the main branch).
 ```
@@ -174,9 +172,7 @@ Moon_Phases/
 ├── simulation.py
 ├── UI.py
 ├── README.md  # This file :)
-| 
-├──.idea
-|   └── Moon_Phases.iml
+├── requirements.txt
 |      
 └── moon_images/
     ├── first_quarter.jpg
@@ -188,9 +184,9 @@ Moon_Phases/
     ├── waxing_crescent.jpg
     └── waxing_gibbous.jpg
 ```
-## 🚧 Challenges & Solutions
-
 ## 📈 Future Improvements
+
+tilt, bodies, eclipses
 
 ## 👥 Team Contributions
 
