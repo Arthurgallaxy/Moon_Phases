@@ -1,0 +1,1 @@
+this is the hard data for the simulation, it saves to this folder after being run a single time to avoid the simulation time, format of files is <Body name>_pos/vel.csv and inside is the position/velocity for each integration of the simulator, row 1 is x pos/vel, row 2 is y and row 3 is z
