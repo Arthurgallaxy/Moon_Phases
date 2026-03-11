@@ -46,7 +46,7 @@ In this README file, you can find:
 ## 📌 Description
 Our main motivation, for this Python practical, was to challenge ourselves and learn to code by collaborating on GitHub to create an interesting stimulation with its visualization and with a scientific relevance that may be used as a lame educational tool in secondary schools.
 
-In our stimulation, we want to visualize the dynamic between three very familiar bodies: the Earth, the Sun and the Moon. In order to do so, we created three classes: (celestial) bodies, Moon phases pictures and user interface (abbreviated as UI). The goal is to provide a user-friendly interface that could be used to visualize the phases of the Moon at a particular data  for an Earth-bound observer.
+In our stimulation, we want to visualize the dynamic between three very familiar bodies: the Earth, the Sun and the Moon. In order to do so, we created three classes: (celestial) bodies, Moon phases calculator and app/user interface (abbreviated as UI). The goal is to provide a user-friendly interface that could be used to visualize the phases of the Moon at a particular date for an Earth-bound observer.
 
 Inputs needed from the user:
 - date (formatted as YYYY-MM-DD)
@@ -61,12 +61,12 @@ Outputs given by the code:
     - 🌖 (Waning Gibbous Moon)
     - 🌗 (Last Quarter Moon)
     - 🌘 (Waning Crescent Moon)
+- 3D animation of the Sun-Earth-Moon dynamic
 
 ## ✨ Features
-- Moon orbit simulation around the Earth from an Earth or Sun perspective?
-- Gravitational force modeling?
+- Animation of the Moon's and Earth's orbits from different perspectives
 - Date-dependant Moon phase visualization
-- Latitude-dependent Moon tilt visualization?
+- GUI that runs the simulation and displays the results
 
 ## 🧠 Physics Background
 ### 🌍 Gravitational Force
@@ -108,30 +108,6 @@ Half of the Moon is actually constantly lit by light coming straight from the Su
   Source: NASA (2026).
   </em>
 </p>
-
-### 🌙 Tilt of the Moon
-Then, building on this idea, we must also consider that the Moon's apparent tilt depending of the observer's latitude on Earth as represented in the image below.  
-
-<p align="center">
-  <img src="https://github.com/user-attachments/assets/28748a2d-e61d-42c5-a798-b574e8098a1f" alt="Moon phases tilt based on latitude" width="700">
-</p>
-
-<p align="center">
-  <em>
-  Figure 3: Moon phases tilt based on latitude.  
-  Source: Reddit (2023).
-  </em>
-</p>
-
-To an observer at the poles, the Moon appears “upright,” whereas to an observer at the equator, it appears to be “lying on its side.” The exact degree of the Moon’s tilt can be simplified by:
-
-**L ≈ T**
-
-Where:  
-- **L** = observer's latitude (in degrees) between 0° (at the equator) and +/-90° (at the poles)
-- **T** = apparent tilt angle (in degrees) between 0° ("laying down") and +/- 90° ("upright")
-
-This linear approximation doesn't take into account the Sun's and Moon's respective azimuth and altitude.
 
 ## 🛠 Libraries Used
 - Python (version 3.14)
@@ -187,6 +163,30 @@ Moon_Phases/
 ## 📈 Future Improvements
 
 tilt, bodies, eclipses
+
+### 🌙 Tilt of the Moon
+Then, building on this idea, we must also consider that the Moon's apparent tilt depending of the observer's latitude on Earth as represented in the image below.  
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/28748a2d-e61d-42c5-a798-b574e8098a1f" alt="Moon phases tilt based on latitude" width="700">
+</p>
+
+<p align="center">
+  <em>
+  Figure 3: Moon phases tilt based on latitude.  
+  Source: Reddit (2023).
+  </em>
+</p>
+
+To an observer at the poles, the Moon appears “upright,” whereas to an observer at the equator, it appears to be “lying on its side.” The exact degree of the Moon’s tilt can be simplified by:
+
+**L ≈ T**
+
+Where:  
+- **L** = observer's latitude (in degrees) between 0° (at the equator) and +/-90° (at the poles)
+- **T** = apparent tilt angle (in degrees) between 0° ("laying down") and +/- 90° ("upright")
+
+This linear approximation doesn't take into account the Sun's and Moon's respective azimuth and altitude.
 
 ## 👥 Team Contributions
 
