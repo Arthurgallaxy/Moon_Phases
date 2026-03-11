@@ -26,7 +26,6 @@
     - [ ] Screenshots or GIFs (if applicable)
 - Optional but nice:
     - [ ] Table of contents (for long READMEs)
-    - [ ] Changelog (are we really doing that?)
 
 ## 📑 Table of Contents
 In this README file, you can find:
@@ -35,12 +34,10 @@ In this README file, you can find:
 - [Physics Background](#-physics-background)
 - [Libraries used](#-libraries-used)
 - [Data used](#-data-used)
-- [Installation](#-installation)
-- [Running the Project](#-running-the-project)
+- [Installation & Running the Project](#-installation---running-the-project)
 - [Usage Example](#-usage-example)
 - [Project Structure](#-project-structure)
 - [Challenges & Solutions](#-challenges--solutions)
-- [What We Learned](#-what-we-learned)
 - [Future Improvements](#-future-improvements)
 - [Team Contributions](#-team-contributions)
 - [License](#-license)
@@ -141,37 +138,29 @@ Where:
 This linear approximation doesn't take into account the Sun's and Moon's respective azimuth and altitude.
 
 ## 🛠 Libraries Used
-
 - Python (version 3.14)
 - rebound – N-body gravitational simulation package
 - customtkinter – GUI framework for user interaction
 - matplotlib – Orbit visualization and plotting
-- skyfield/ephem (?) – Astronomical calculations for phases of the Moon
 - Pillow – Image processing library  
 - numpy – Numerical computing library for array operations and mathematical calculations  
 
 ## 📚 Data Used
 The Moon phases images used as output were obtained from NASA (2026).
 
-## ⚙ Installation
-
+## ⚙ Installation & 🚀 Running the Project
 ### Prerequisites
-
-- Python 3.8+ ??
+- Python 3.8+
 - pip
-- [Other requirements?]
-
-### Setup
+- Libraries used
+### Set up
+1. Clone this repository (all project files in the main branch).
 ```
-git clone https://github.com/[username]/[repository-name].git
-cd [repository-name?]
-pip install -r requirements.txt
+git clone https://github.com/Arthurgallaxy/Moon_Phases.git
 ```
-
-## 🚀 Running the Project
-```
-python main.py
-```
+2. Place them in the same directory on your laptop.
+3. Install all the required dependencies (the libraries used).
+4. Run simulation.py
 
 ## 💻 Usage Example
 ```
@@ -189,14 +178,7 @@ Moon_Phases/
 ├── README.md  # This file :)
 | 
 ├──.idea
-|   ├── .gitignore
-|   ├── misc.xml
-|   ├── modules.xml
-|   ├── Moon_Phases.iml
-|   ├── vcs.xml
-|   ├── workspace.xml 
-|   └── inspectionProfiles
-|           profiles_settings.xml    
+|   └── Moon_Phases.iml
 |      
 └── moon_images/
     ├── first_quarter.jpg
@@ -210,22 +192,19 @@ Moon_Phases/
 ```
 ## 🚧 Challenges & Solutions
 
-## 📚 What we learned
-
 ## 📈 Future Improvements
-redundant with the challenges and solutions part??
 
 ## 👥 Team Contributions
 
-Arthur Foulon – animation? helping everyone :)
+Arthur Foulon – Coded animation.py, simulation.py, moon_phases_pictures.py, helped everyone :)
 
-Aleksandra Chmielewska – UI?
+Aleksandra Chmielewska – Coded UI.py
 
-Laura-Jo Lykles – 
+Laura-Jo Lykles – Coded Bodies.py
 
-Margot Portier – README.md writer?
+Margot Portier – Wrote README.md
 
-Luna Hoenders – moon phases simulation?
+Luna Hoenders – Coded simulation?
 
 ## 📜 License
 This project is licensed under the MIT License. (Open access.)
