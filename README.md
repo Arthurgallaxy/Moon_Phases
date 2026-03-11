@@ -167,7 +167,8 @@ Moon_Phases/
 ├── UI.py
 ├── README.md  # This file :)
 ├── requirements.txt
-|      
+|
+├── Sim_data/
 └── moon_images/
     ├── first_quarter.jpg
     ├── full_moon.jpg
