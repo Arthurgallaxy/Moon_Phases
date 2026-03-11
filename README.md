@@ -5,7 +5,7 @@
 **Date:** February/March 2026  
 **Team members and student IDs:** Arthur Foulon (i6374980), Aleksandra Chmielewska (i6382400), Luna Hoenders (i6352961), Laura-Jo Lykles (i6375390), Margot Portier (i6344762) 
 
-*This project aims to create a simple but accurate stimulation that would enable one to visualize the phases of the Moon from an Earth-bound observer.*
+*This project aims to create a simple but accurate stimulation that would enable the visualization of the phases of the Moon for an Earth-bound observer.*
 
 ## README instructions
 (Only for us, to be deleted before final submission, check boxe only if part is fully finished):  
@@ -37,7 +37,6 @@ In this README file, you can find:
 - [Installation & Running the Project](#-installation---running-the-project)
 - [Usage Example](#-usage-example)
 - [Project Structure](#-project-structure)
-- [Challenges & Solutions](#-challenges--solutions)
 - [Future Improvements](#-future-improvements)
 - [Team Contributions](#-team-contributions)
 - [License](#-license)
@@ -45,13 +44,12 @@ In this README file, you can find:
 - [References](#-references)
 
 ## 📌 Description
-Our main motivation, for this python practical, was to challenge ourselves and learn to code by collaborating on GitHub to create an interesting stimulation with its visualization and with a scientific relevance that may be used as a lame educational tool in secondary schools.
+Our main motivation, for this Python practical, was to challenge ourselves and learn to code by collaborating on GitHub to create an interesting stimulation with its visualization and with a scientific relevance that may be used as a lame educational tool in secondary schools.
 
-In our stimulation, we want to visualize the dynamic between three very familiar bodies: the Earth, the Sun and the Moon. In order to do so, we created four classes: celestial bodies, orbits, observer and user interface (abbreviated as UI). The goal is to provide a user-friendly interface that could be used to visualize the phases and tilt of the Moon depending on the date and latitude on Earth. The Earth-bound observer is represented by a cat that can either be dead or alive with a 50% chance (little nerdy quantum add to this astronomy project.)
+In our stimulation, we want to visualize the dynamic between three very familiar bodies: the Earth, the Sun and the Moon. In order to do so, we created three classes: (celestial) bodies, Moon phases calculator and app/user interface (abbreviated as UI). The goal is to provide a user-friendly interface that could be used to visualize the phases of the Moon at a particular date for an Earth-bound observer.
 
 Inputs needed from the user:
-- date (and time of the day?)
-- latitude on Earth
+- date (formatted as YYYY-MM-DD)
 
 Outputs given by the code:
 - visualization of the phase of the Moon amongst these 8 possible phases: 
@@ -63,14 +61,12 @@ Outputs given by the code:
     - 🌖 (Waning Gibbous Moon)
     - 🌗 (Last Quarter Moon)
     - 🌘 (Waning Crescent Moon)
-- visualization of the apparent tilt of the Moon
-- if the cat is dead or alive... 🐈‍⬛
+- 3D animation of the Sun-Earth-Moon dynamic
 
 ## ✨ Features
-- Moon orbit simulation around the Earth from an Earth or Sun perspective?
-- Gravitational force modeling?
+- Animation of the Moon's and Earth's orbits from different perspectives
 - Date-dependant Moon phase visualization
-- Latitude-dependent Moon tilt visualization?
+- GUI that runs the simulation and displays the results
 
 ## 🧠 Physics Background
 ### 🌍 Gravitational Force
@@ -84,7 +80,7 @@ Where:
 - **m₁, m₂** = masses of the two objects (in kg)
 - **r** = distance between the centers of mass of the two objects (in meters)
 
-This formula, in its simplest form, is used to compute an approximation of the orbits of the Earth around the Sun (?) and the Moon around the Earth as a basis for our simulation. Any relativistic effect was ignored.
+This formula, in its simplest form, is used to compute an approximation of the orbits of the Earth around the Sun and the Moon around the Earth as a basis for our simulation. Any relativistic effect was ignored.
 
 ### 🌘 Phases of the Moon
 <p align="center">
@@ -113,6 +109,68 @@ Half of the Moon is actually constantly lit by light coming straight from the Su
   </em>
 </p>
 
+## 🛠 Libraries Used
+- Python (version 3.14)
+- rebound – N-body gravitational simulation package (used for the simulation of the movement of the Earth around the Sun and Moon around the Earth)
+- customtkinter – GUI framework for user interaction
+- matplotlib – Orbit visualization and plotting
+- Pillow – Image processing library  
+- numpy – Numerical computing library for array operations and mathematical calculations  
+ 
+## 📚 Data Used
+Our code does not rely on external datasets. Instead, the Sun-Earth-Moon dynamic is computed by the simulation.py file using REBOUND. We used know astronomical constants (e.g. masses, orbital distances, AU etc) and the Moon phase is calculated mathematically from the synodic lunar cycle (around 29.53 days).  
+The Moon phases images used as output were obtained from NASA (2026).
+
+## ⚙ Installation & 🚀 Running the Project
+### Prerequisites
+- Python 3.8+
+- pip
+- Libraries used (mentionned in the requirements.txt file)
+### Set up
+1. Clone this repository (all project files in the main branch).
+```
+git clone https://github.com/Arthurgallaxy/Moon_Phases.git
+```
+2. Ensure that all files are in the same folder on your laptop and change your directory to this folder.
+```
+cd Moon_Phases
+```
+3. Install all the required dependencies (the libraries used).
+```
+pip install -r requirements.txt
+```
+4. Run UI.py (our main file).
+
+## 💻 Usage Example
+```
+XXX
+```
+
+## 📁 Project Structure
+(Main branch only)
+```
+Moon_Phases/
+├── Bodies.py
+├── moon_phases_pictures.py
+├── simulation.py
+├── UI.py
+├── README.md  # This file :)
+├── requirements.txt
+|      
+└── moon_images/
+    ├── first_quarter.jpg
+    ├── full_moon.jpg
+    ├── last_quarter.jpg
+    ├── new_moon.jpg
+    ├── waning_crescent.jpg
+    ├── waning_gibbous.jpg
+    ├── waxing_crescent.jpg
+    └── waxing_gibbous.jpg
+```
+## 📈 Future Improvements
+
+1. Incorporating a latitude-dependent apparent tilt of the Moon, as explained in the paragraphs of background information below.
+
 ### 🌙 Tilt of the Moon
 Then, building on this idea, we must also consider that the Moon's apparent tilt depending of the observer's latitude on Earth as represented in the image below.  
 
@@ -137,62 +195,8 @@ Where:
 
 This linear approximation doesn't take into account the Sun's and Moon's respective azimuth and altitude.
 
-## 🛠 Libraries Used
-- Python (version 3.14)
-- rebound – N-body gravitational simulation package
-- customtkinter – GUI framework for user interaction
-- matplotlib – Orbit visualization and plotting
-- Pillow – Image processing library  
-- numpy – Numerical computing library for array operations and mathematical calculations  
-
-## 📚 Data Used
-The Moon phases images used as output were obtained from NASA (2026).
-
-## ⚙ Installation & 🚀 Running the Project
-### Prerequisites
-- Python 3.8+
-- pip
-- Libraries used
-### Set up
-1. Clone this repository (all project files in the main branch).
-```
-git clone https://github.com/Arthurgallaxy/Moon_Phases.git
-```
-2. Place them in the same directory on your laptop.
-3. Install all the required dependencies (the libraries used).
-4. Run simulation.py
-
-## 💻 Usage Example
-```
-XXX
-```
-
-## 📁 Project Structure
-(Main branch only)
-```
-Moon_Phases/
-├── Bodies.py
-├── moon_phases_pictures.py
-├── simulation.py
-├── UI.py
-├── README.md  # This file :)
-| 
-├──.idea
-|   └── Moon_Phases.iml
-|      
-└── moon_images/
-    ├── first_quarter.jpg
-    ├── full_moon.jpg
-    ├── last_quarter.jpg
-    ├── new_moon.jpg
-    ├── waning_crescent.jpg
-    ├── waning_gibbous.jpg
-    ├── waxing_crescent.jpg
-    └── waxing_gibbous.jpg
-```
-## 🚧 Challenges & Solutions
-
-## 📈 Future Improvements
+2. Creating an additionnal eclipse simulator that could predict Solar and Lunar eclipses but this would be quite hard since these astronomical phenomena depend on a lot of factors such as the tilt of the Moon's orbit, the location of the observer on Earth, the Earth-Moon distance etc. 
+3. The bodies.py file isn't an active part of our current code. It serves as a template in case we want to give more freedom to the user and make them able to give more inputs such as the number of celestial bodies present in the simulation and their respective characteristics (e.g. mass, orbits, etc). 
 
 ## 👥 Team Contributions
 
