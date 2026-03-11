@@ -80,7 +80,7 @@ Where:
 - **m₁, m₂** = masses of the two objects (in kg)
 - **r** = distance between the centers of mass of the two objects (in meters)
 
-This formula, in its simplest form, is used to compute an approximation of the orbits of the Earth around the Sun (?) and the Moon around the Earth as a basis for our simulation. Any relativistic effect was ignored.
+This formula, in its simplest form, is used to compute an approximation of the orbits of the Earth around the Sun and the Moon around the Earth as a basis for our simulation. Any relativistic effect was ignored.
 
 ### 🌘 Phases of the Moon
 <p align="center">
@@ -195,7 +195,7 @@ Where:
 
 This linear approximation doesn't take into account the Sun's and Moon's respective azimuth and altitude.
 
-2. Creating an additionnal eclispe simulator that could predict Solar and Lunar eclipses but this would be quite hard since these astronomical phenomena depend on a lot of factors such as the tilt of the Moon's orbit, the location of the observer on Earth, the Earth-Moon distance etc. 
+2. Creating an additionnal eclipse simulator that could predict Solar and Lunar eclipses but this would be quite hard since these astronomical phenomena depend on a lot of factors such as the tilt of the Moon's orbit, the location of the observer on Earth, the Earth-Moon distance etc. 
 3. The bodies.py file isn't an active part of our current code. It serves as a template in case we want to give more freedom to the user and make them able to give more inputs such as the number of celestial bodies present in the simulation and their respective characteristics (e.g. mass, orbits, etc). 
 
 ## 👥 Team Contributions
