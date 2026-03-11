@@ -4,7 +4,7 @@ import ast
 import os
 from tkinter import END
 from simulation import simulate
-from moon_phases_pictures import moon_phase_for_date
+import moon_phases_pictures
 
 import numpy as np
 from matplotlib import pyplot as plt
@@ -31,10 +31,11 @@ class app(customtkinter.CTk):
 
             #this time i would like to have as an imput to the simulation, here we connect it to the moon phases #What would you like to have as input?
                 date_str=self.time_entry_frame.get().strip()
-                phase_name, img_path = moon_phase_for_date(date_str)
+                moon_phases_calc = moon_phases_pictures.MoonPhaseCalculator("moon_images")
+                phase_name, img_path = moon_phases_calc.moon_phase_for_date(date_str)
 
             #configuring the text of the result
-                self.result_label_frame.configure(text=f"{phase_name}")
+            #    self.result_label_frame.configure(text=f"{phase_name}")
 
             #displaying the image in the ui
                 pil_img=Image.open(img_path)
