@@ -207,7 +207,7 @@ Where:
 This linear approximation doesn't take into account the Sun's and Moon's respective azimuth and altitude.
 
 2. Creating an additionnal eclipse simulator that could predict Solar and Lunar eclipses but this would be quite hard since these astronomical phenomena depend on a lot of factors such as the tilt of the Moon's orbit, the location of the observer on Earth, the Earth-Moon distance etc. 
-3. The bodies.py file isn't an active part of our current code. It serves as a template in case we want to give more freedom to the user and make them able to give more inputs such as the number of celestial bodies present in the simulation and their respective characteristics (e.g. mass, orbits, etc). 
+3. The bodies.py file isn't a useful part of our current code. It serves as a template in case we want to give more freedom to the user and make them able to give more inputs such as the number of celestial bodies present in the simulation and their respective characteristics (e.g. mass, orbits, etc). 
 
 ## 👥 Team Contributions
 
