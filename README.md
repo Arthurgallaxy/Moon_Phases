@@ -111,13 +111,14 @@ Half of the Moon is actually constantly lit by light coming straight from the Su
 
 ## 🛠 Libraries Used
 - Python (version 3.14)
-- rebound – N-body gravitational simulation package
+- rebound – N-body gravitational simulation package (used for the simulation of the movement of the Earth around the Sun and Moon around the Earth)
 - customtkinter – GUI framework for user interaction
 - matplotlib – Orbit visualization and plotting
 - Pillow – Image processing library  
 - numpy – Numerical computing library for array operations and mathematical calculations  
-
+ 
 ## 📚 Data Used
+Our code does not rely on external datasets. Instead, the Sun-Earth-Moon dynamic is computed by the simulation.py file using REBOUND. We used know astronomical constants (e.g. masses, orbital distances, AU etc) and the Moon phase is calculated mathematically from the synodic lunar cycle (around 29.53 days).  
 The Moon phases images used as output were obtained from NASA (2026).
 
 ## ⚙ Installation & 🚀 Running the Project
