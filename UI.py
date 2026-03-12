@@ -230,14 +230,14 @@ class app(customtkinter.CTk):
 
         # This would be set to user input in the future for each body and then they would each be placed in an array, however for the time being it is hard coded to the solar system with sun earth and moon
         bodies = [
-            Bodies.Body(
+            Bodies.Star(
                 name="Sun",
                 mass=1.9891e30,
                 body_radius=6.957e8,
                 position=(0.0, 0.0, 0.0),
                 velocity=(0.0, 0.0, 0.0)
             ),
-            Bodies.Body(
+            Bodies.PlanetsAndMoons(
                 name="Earth",
                 mass=5.9722e24,
                 body_radius=6.378e6,
@@ -249,7 +249,7 @@ class app(customtkinter.CTk):
                 true_anomaly=0.0,
                 primary="Sun"
             ),
-            Bodies.Body(
+            Bodies.PlanetsAndMoons(
                 name="Moon",
                 mass=7.34767309e22,
                 body_radius=1.737e6,
@@ -266,7 +266,7 @@ class app(customtkinter.CTk):
 
         # Solar system with major moons
         solar = [
-            Bodies.Body(
+            Bodies.Star(
                 name="Sun",
                 mass=1.9891e30,
                 body_radius=6.957e8,
@@ -274,7 +274,7 @@ class app(customtkinter.CTk):
                 velocity=(0.0, 0.0, 0.0)
             ),
 
-            Bodies.Body(
+            Bodies.PlanetsAndMoons(
                 name="Mercury",
                 mass=3.3011e23,
                 body_radius=2.4397e6,
@@ -286,7 +286,7 @@ class app(customtkinter.CTk):
                 true_anomaly=0.0,
                 primary="Sun"
             ),
-            Bodies.Body(
+            Bodies.PlanetsAndMoons(
                 name="Venus",
                 mass=4.8675e24,
                 body_radius=6.0518e6,
@@ -298,7 +298,7 @@ class app(customtkinter.CTk):
                 true_anomaly=0.0,
                 primary="Sun"
             ),
-            Bodies.Body(
+            Bodies.PlanetsAndMoons(
                 name="Earth",
                 mass=5.9722e24,
                 body_radius=6.378e6,
@@ -310,7 +310,7 @@ class app(customtkinter.CTk):
                 true_anomaly=0.0,
                 primary="Sun"
             ),
-            Bodies.Body(
+            Bodies.PlanetsAndMoons(
                 name="Moon",
                 mass=7.34767309e22,
                 body_radius=1.737e6,
@@ -323,7 +323,7 @@ class app(customtkinter.CTk):
                 primary="Earth"
             ),
 
-            Bodies.Body(
+            Bodies.PlanetsAndMoons(
                 name="Mars",
                 mass=6.4171e23,
                 body_radius=3.3895e6,
@@ -335,7 +335,7 @@ class app(customtkinter.CTk):
                 true_anomaly=0.0,
                 primary="Sun"
             ),
-            Bodies.Body(
+            Bodies.PlanetsAndMoons(
                 name="Phobos",
                 mass=1.0659e16,
                 body_radius=1.1267e4,
@@ -347,7 +347,7 @@ class app(customtkinter.CTk):
                 true_anomaly=0.0,
                 primary="Mars"
             ),
-            Bodies.Body(
+            Bodies.PlanetsAndMoons(
                 name="Deimos",
                 mass=1.4762e15,
                 body_radius=6.2e3,
@@ -360,7 +360,7 @@ class app(customtkinter.CTk):
                 primary="Mars"
             ),
 
-            Bodies.Body(
+            Bodies.PlanetsAndMoons(
                 name="Jupiter",
                 mass=1.8982e27,
                 body_radius=6.9911e7,
@@ -372,7 +372,7 @@ class app(customtkinter.CTk):
                 true_anomaly=0.0,
                 primary="Sun"
             ),
-            Bodies.Body(
+            Bodies.PlanetsAndMoons(
                 name="Io",
                 mass=8.9319e22,
                 body_radius=1.8216e6,
@@ -384,7 +384,7 @@ class app(customtkinter.CTk):
                 true_anomaly=0.0,
                 primary="Jupiter"
             ),
-            Bodies.Body(
+            Bodies.PlanetsAndMoons(
                 name="Europa",
                 mass=4.7998e22,
                 body_radius=1.5608e6,
@@ -396,7 +396,7 @@ class app(customtkinter.CTk):
                 true_anomaly=0.0,
                 primary="Jupiter"
             ),
-            Bodies.Body(
+            Bodies.PlanetsAndMoons(
                 name="Ganymede",
                 mass=1.4819e23,
                 body_radius=2.6341e6,
@@ -408,7 +408,7 @@ class app(customtkinter.CTk):
                 true_anomaly=0.0,
                 primary="Jupiter"
             ),
-            Bodies.Body(
+            Bodies.PlanetsAndMoons(
                 name="Callisto",
                 mass=1.0759e23,
                 body_radius=2.4103e6,
@@ -421,7 +421,7 @@ class app(customtkinter.CTk):
                 primary="Jupiter"
             ),
 
-            Bodies.Body(
+            Bodies.PlanetsAndMoons(
                 name="Saturn",
                 mass=5.6834e26,
                 body_radius=5.8232e7,
@@ -433,7 +433,7 @@ class app(customtkinter.CTk):
                 true_anomaly=0.0,
                 primary="Sun"
             ),
-            Bodies.Body(
+            Bodies.PlanetsAndMoons(
                 name="Titan",
                 mass=1.3452e23,
                 body_radius=2.57473e6,
@@ -445,7 +445,7 @@ class app(customtkinter.CTk):
                 true_anomaly=0.0,
                 primary="Saturn"
             ),
-            Bodies.Body(
+            Bodies.PlanetsAndMoons(
                 name="Uranus",
                 mass=8.6810e25,
                 body_radius=2.5362e7,
@@ -457,7 +457,7 @@ class app(customtkinter.CTk):
                 true_anomaly=0.0,
                 primary="Sun"
             ),
-            Bodies.Body(
+            Bodies.PlanetsAndMoons(
                 name="Miranda",
                 mass=6.59e19,
                 body_radius=2.358e5,
@@ -469,7 +469,7 @@ class app(customtkinter.CTk):
                 true_anomaly=0.0,
                 primary="Uranus"
             ),
-            Bodies.Body(
+            Bodies.PlanetsAndMoons(
                 name="Ariel",
                 mass=1.353e21,
                 body_radius=5.788e5,
@@ -481,7 +481,7 @@ class app(customtkinter.CTk):
                 true_anomaly=0.0,
                 primary="Uranus"
             ),
-            Bodies.Body(
+            Bodies.PlanetsAndMoons(
                 name="Neptune",
                 mass=1.02413e26,
                 body_radius=2.4622e7,
