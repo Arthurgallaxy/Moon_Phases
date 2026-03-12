@@ -7,26 +7,6 @@
 
 *This project aims to create a simple but accurate stimulation that would enable the visualization of the phases of the Moon for an Earth-bound observer.*
 
-## README instructions
-(Only for us, to be deleted before final submission, check boxe only if part is fully finished):  
-- Essential:
-    - [x] Clear project title  
-    - [x] One-line description  
-    - [ ] What it does (2-3 sentences)
-    - [ ] Installation instructions that work
-    - [ ] At least one usage example
-    - [ ] No typos or broken links
-- Recommended:
-    - [ ] Features list
-    - [ ] Prerequisites clearly stated
-    - [ ] Project structure diagram
-    - [ ] Contributing guidelines (for group projects)
-    - [x] License information
-    - [x] Contact information
-    - [ ] Screenshots or GIFs (if applicable)
-- Optional but nice:
-    - [ ] Table of contents (for long READMEs)
-
 ## 📑 Table of Contents
 In this README file, you can find:
 - [Description](#-description)
@@ -142,9 +122,40 @@ pip install -r requirements.txt
 4. Run UI.py (our main file).
 
 ## 💻 Usage Example
-```
-XXX
-```
+Once you ran UI.py, you will find this user interface.
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/f44f14a4-d408-4829-a9d7-d6cfc585a2f1" alt="UI" width="300">
+</p>
+
+<p align="center">
+  <em>
+  Figure 3: User interface.  
+  </em>
+</p>
+
+Enter a date with format YYYY-MM-DD (e.g. 2004-10-11) and click "Show phase". The code will display the Moon phase name for that date (e.g., Waning Cresent) as well as the corresponding Moon image. 
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/fe9a7b66-8270-4c1a-b99e-3690ca3670b5" alt="UI" width="300">
+</p>
+
+<p align="center">
+  <em>
+  Figure 4: Moon phase image and name.  
+  </em>
+</p>
+
+Then, to visualize the orbits, you can click either on "Solar View" to see the Sun–Earth–Moon system or on "Earth View" to see the same system centered on Earth (as displayed below). 
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/48ab3a02-8d24-46c7-986b-28f5ff7c2ae8" alt="Moon phases tilt based on latitude" width="700">
+</p>
+
+<p align="center">
+  <em>
+  Figure 5: Moon phase and orbit visualization.  
+  </em>
+</p>
 
 ## 📁 Project Structure
 (Main branch only)
@@ -156,7 +167,8 @@ Moon_Phases/
 ├── UI.py
 ├── README.md  # This file :)
 ├── requirements.txt
-|      
+|
+├── Sim_data/
 └── moon_images/
     ├── first_quarter.jpg
     ├── full_moon.jpg
@@ -180,7 +192,7 @@ Then, building on this idea, we must also consider that the Moon's apparent tilt
 
 <p align="center">
   <em>
-  Figure 3: Moon phases tilt based on latitude.  
+  Figure 6: Moon phases tilt based on latitude.  
   Source: Reddit (2023).
   </em>
 </p>
@@ -196,7 +208,7 @@ Where:
 This linear approximation doesn't take into account the Sun's and Moon's respective azimuth and altitude.
 
 2. Creating an additionnal eclipse simulator that could predict Solar and Lunar eclipses but this would be quite hard since these astronomical phenomena depend on a lot of factors such as the tilt of the Moon's orbit, the location of the observer on Earth, the Earth-Moon distance etc. 
-3. The bodies.py file isn't an active part of our current code. It serves as a template in case we want to give more freedom to the user and make them able to give more inputs such as the number of celestial bodies present in the simulation and their respective characteristics (e.g. mass, orbits, etc). 
+3. The bodies.py file isn't a useful part of our current code. It serves as a template in case we want to give more freedom to the user and make them able to give more inputs such as the number of celestial bodies present in the simulation and their respective characteristics (e.g. mass, orbits, etc). 
 
 ## 👥 Team Contributions
 
