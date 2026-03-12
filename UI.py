@@ -213,19 +213,19 @@ class app(customtkinter.CTk):
         self.viewbutton.grid(row=0, column = 1, pady = (12,6) , padx = (6,12))
 
         self.time_entry_frame= customtkinter.CTkEntry(self.right_panel, placeholder_text="Enter the date : YYYY-MM-DD",  height=100, width=250 )
-        self.time_entry_frame.grid(row=2,column=0, columnspan=2, pady= 10, padx=12)
+        self.time_entry_frame.grid(row=3,column=0, columnspan=2, pady= 10, padx=12)
 
         #the submition button which needs to be connected to the pre-definied function submit
         self.my_button_frame= customtkinter.CTkButton(self.right_panel,text="Show phase",command=submit, height=30, width=70)
-        self.my_button_frame.grid(row=3, column=0, columnspan=2, pady = (0,12), padx = 12)
+        self.my_button_frame.grid(row=4, column=0, columnspan=2, pady = (0,12), padx = 12)
 
         #the result text popping up when we have an error input - i have to work on it
         self.result_label_frame = customtkinter.CTkLabel(self, text="", font = ("Arial", 16))
-        self.result_label_frame.grid(row=4,column=0, columnspan=2, pady = (10,5))
+        self.result_label_frame.grid(row=5,column=0, columnspan=2, pady = (10,5))
 
         # the image object in the ui 
         self.image_label_frame = customtkinter.CTkLabel(self.right_panel, text = "")
-        self.image_label_frame.grid(row=1, column=0, columnspan=2, pady = (12,6), padx = (6,12))
+        self.image_label_frame.grid(row=2, column=0, columnspan=2, pady = (12,6), padx = (6,12))
         self.phase_img = None
 
         # This would be set to user input in the future for each body and then they would each be placed in an array, however for the time being it is hard coded to the solar system with sun earth and moon
