@@ -1,6 +1,8 @@
 import os
 import numpy as np
 import rebound
+import Bodies
+
 
 class Simulator:
     #timestep_num and dt will have to be user inputs as well so the user can control both the accuracy and the duration of the simulation
@@ -19,7 +21,8 @@ class Simulator:
             "r": body.body_radius
         }
         # Mode 1: Cartesian state vectors
-        if body.position is not None or body.velocity is not None:
+        if isinstance(body, Bodies.Star):
+#        if body.position is not None or body.velocity is not None:
             if body.position is None or body.velocity is None:
                 raise ValueError(
                     f"{body.name}: position and velocity must both be provided "
@@ -34,9 +37,9 @@ class Simulator:
             return kwargs
 
         # Mode 2: Orbital elements
-        if body.semi_major_axis is not None:
-            kwargs["a"] = body.semi_major_axis
-
+        elif isinstance(body, Bodies.PlanetsAndMoons):
+            if body.semi_major_axis is not None:
+                kwargs["a"] = body.semi_major_axis
             if body.eccentricity is not None:
                 kwargs["e"] = body.eccentricity
             if body.orbital_tilt is not None:
