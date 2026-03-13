@@ -2,7 +2,6 @@ import customtkinter
 from PIL import Image
 import ast
 import os
-from tkinter import END
 import simulation
 import moon_phases_pictures
 import Bodies
@@ -26,12 +25,12 @@ class app(customtkinter.CTk):
             
             try: 
 
-            #this time i would like to have as an imput to the simulation, here we connect it to the moon phases
+            #this time the user imputs into entrybox in the user interface, here we connect it to the moon phases
                 date_str=self.time_entry_frame.get().strip()
                 moon_phases_calc = moon_phases_pictures.MoonPhaseCalculator("moon_images")
                 phase_name, img_path = moon_phases_calc.moon_phase_for_date(date_str)
 
-            #configuring the text of the result
+            #configuring the text of the result, not used currently, started for further improvement
             #    self.result_label_frame.configure(text=f"{phase_name}")
 
             #displaying the image in the ui
@@ -64,11 +63,7 @@ class app(customtkinter.CTk):
 
             show_anim("Solar", body_names)
 
-        #the method for clearing the button so we can put next thing 
-
-        #def clear(self):
-           # self.time_entry.delete(0,END)
-
+   
         #function to make the matplot animation
         def show_anim(view, sim_body_names, focus_body_name="Earth"):
 
@@ -219,7 +214,7 @@ class app(customtkinter.CTk):
         self.my_button_frame= customtkinter.CTkButton(self.right_panel,text="Show phase",command=submit, height=30, width=70)
         self.my_button_frame.grid(row=4, column=0, columnspan=2, pady = (0,12), padx = 12)
 
-        #the result text popping up when we have an error input - i have to work on it
+        #the result text popping up when we have an error input 
         self.result_label_frame = customtkinter.CTkLabel(self, text="", font = ("Arial", 16))
         self.result_label_frame.grid(row=5,column=0, columnspan=2, pady = (10,5))
 
